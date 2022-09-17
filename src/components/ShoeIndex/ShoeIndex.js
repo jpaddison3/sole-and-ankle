@@ -18,6 +18,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           <Select
             label="Sort"
             value={sortId}
+            direction="row"
             onChange={(ev) => setSortId(ev.target.value)}
           >
             <option value="newest">Newest Releases</option>
@@ -42,15 +43,29 @@ const ShoeIndex = ({ sortId, setSortId }) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 64px;
+`;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+  margin-top: 12px;
+`;
 
-const MainColumn = styled.div``;
+const MainColumn = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
 
-const Header = styled.header``;
+const Header = styled.header`
+  display: flex;
+  align-items: baseline;
+`;
 
 const Title = styled.h2`
+  margin-right: auto;
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
 `;

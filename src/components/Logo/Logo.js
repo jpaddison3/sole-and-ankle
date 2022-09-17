@@ -12,6 +12,7 @@ const Logo = (props) => {
 };
 
 const Link = styled.a`
+  margin-right: auto;
   text-decoration: none;
   color: inherit;
 `;

@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { COLORS, WEIGHTS } from '../../constants';
 import Icon from '../Icon';
 
-const Select = ({ label, value, children, ...delegated }) => {
+const Select = ({ label, value, children, direction='column', ...delegated }) => {
   const childArray = React.Children.toArray(children);
   const selectedChild = childArray.find(
     (child) => child.props.value === value
@@ -13,7 +13,7 @@ const Select = ({ label, value, children, ...delegated }) => {
   const displayedValue = selectedChild.props.children;
 
   return (
-    <Wrapper>
+    <Wrapper direction={direction}>
       <VisibleLabel>{label}</VisibleLabel>
 
       <SelectWrapper>
@@ -32,7 +32,11 @@ const Select = ({ label, value, children, ...delegated }) => {
   );
 };
 
-const Wrapper = styled.label``;
+const Wrapper = styled.label`
+  display: flex;
+  flex-direction: {(p) => p.direction === 'column' ? 'column' : 'row'};
+  align-items: center;
+`;
 
 const VisibleLabel = styled.span`
   color: ${COLORS.gray[700]};
